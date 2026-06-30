@@ -1,0 +1,31 @@
+name: Pipeline multi-job
+
+on:
+  push:
+
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular compilación
+        run: echo "Compilando el proyecto..."
+      - name: Compilación completada
+        run: echo "✅ Sin errores de compilación"
+
+  tests:
+    runs-on: ubuntu-latest
+    needs: compilar        # espera a que "compilar" termine antes de empezar
+    steps:
+      - name: Ejecutar tests unitarios
+        run: echo "Ejecutando tests..."
+      - name: Resultado de los tests
+        run: echo "✅ 5 tests pasados, 0 fallos"
+
+  informe:
+    runs-on: ubuntu-latest
+    needs: tests           # espera a que "tests" termine
+    steps:
+      - name: Generar informe
+        run: echo "Generando informe de resultados..."
+      - name: Informe disponible
+        run: echo "✅ Informe generado correctamente"
