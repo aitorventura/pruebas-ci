@@ -1,0 +1,14 @@
+name: Info del repositorio
+
+on:
+  push:
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mostrar ficheros del repo
+        run: ls -la
+      - name: Mostrar rama actual
+        run: git branch --show-current

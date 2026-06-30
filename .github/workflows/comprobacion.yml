@@ -1,0 +1,15 @@
+name: Comprobación de entorno
+
+on:
+  push:
+
+jobs:
+  entorno:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Versión de Java
+        run: java -version 2>&1 || echo "Java no instalado"
+      - name: Versión de Node
+        run: node --version
+      - name: Versión de Python
+        run: python3 --version
