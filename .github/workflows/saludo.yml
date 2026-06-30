@@ -1,0 +1,17 @@
+name: Saludo
+
+on:
+  push:
+
+jobs:
+  saludar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir mensaje
+        run: echo "¡Hola desde GitHub Actions!"
+
+      - name: Ver información del runner
+        run: |
+          echo "Sistema operativo: $(uname -s)"
+          echo "Directorio de trabajo: $(pwd)"
+          echo "Fecha y hora: $(date)"
